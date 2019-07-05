@@ -206,7 +206,7 @@ ret = SapModel.SetPresentUnits(kip_ft_F)
 #x=[50,100,150,100,50,0]
 #y=[0,0,40,80,80,40]
 #z=[0,0,0,0,0,0]
-eren = ' '
+point = ' '
 #ret = SapModel.AreaObj.AddByCoord(6,x,y,z,eren,)
 
 for i in range(len(area_koordinat)):
@@ -217,7 +217,7 @@ for i in range(len(area_koordinat)):
     z= []
     z.append([area_koordinat[i][3],area_koordinat[i][7],area_koordinat[i][11],area_koordinat[i][15]])
 
-    ret = SapModel.AreaObj.AddByCoord(4,x[0],y[0],z[0],eren)
+    ret = SapModel.AreaObj.AddByCoord(4,x[0],y[0],z[0],point)
     i = str(i)
     red = SapModel.AreaObj.GetPoints(i,)
 
