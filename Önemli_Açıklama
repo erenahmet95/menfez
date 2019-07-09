@@ -1,0 +1,40 @@
+Merhaba, 3D boyutlu menfez modellemesi için Python'da yazdığım SAP2000 OAPI kodlarını paylaşıyorum . kodların çoğunun yanında nasıl kullanıldığına dair bilgiler yazmaya çalıştım.  Türkiye'de bu tarz çalışmalar ile ilgili çok fazla bilgi ve kaynak bulunmadığı için paylaşmak istiyorum.
+-Programı çalıştırmak için PYTHON3 kurulu olması gerekiyor.
+Modelin algoritmasından bahsedeyim.
+
+-Boyutları belli olan bir menfezin genişliğini yüksekliğini ve uzunluğunu giriyorsunuz. Program bir fonksiyon yardımı ile kutu modelin 3 boyutlu koordinatlarını oluşturuyor.
+
+-Daha sonra  program menfez duvar kalınlıklarını sizden istiyor. varsayılan olarak c30/37 beton kullandım. (farklı türler eklenebilir.)
+- Program size hesapladığınız  dolgu yükü,ölü yükler gibi yüklerin toplam değerini istiyor.
+-Hareketli yük değerini istiyor.
+-Sürsarj etkileri için kod içerisinde bir kısım yazdım nasıl hesaplandığına dair. Varsayılan olarak bir değer alıp program hesaplıyor. Bunlar da menfez üst kısmı için 16.25 alt kısmı için 56.25 (bu kısım için ayrı fonksiyon yazmayı düşünüyorum kullanıcı girişli olacak şekilde diğer türlü değerleri kodlardan değiştirmek gerekiyor.)
+-Menfez içinde ki su basıncınıda benzer şekilde varsayılan olarak bir değer alıp ona göre işleme devam ediyor. (bunlar içinde kullanıcı girişli fonksiyonlar yazmayı düşünüyorum)
+
+-Program girilen değerlere göre joint pattern ları tanımlıyor. Elevasyon duvarlarına bu joint patternlara göre area surface pressure uyguluyor.
+-Menfez radyesi için u1,u2 ve r3 serbestlikleri tutuluyor.
+-Yanal duvarlar için sadece u2 tutuluyor.
+
+
+-Program da varsayılan yük çeşitleri G,Q,Su basinci,Toprak Basinci olarak tanımlı.
+
+
+
+-Paylaştığım kodlarda Yatay yatak katsayı 14000 kn/m3 düşey yatak katsayısı ise 40000 kn/m3 olarak tanımladım.(kullanıcı girişili alınabilir.)
+
+Program modeli Menfez-api olarak kayıt edip analizini yapıyor. Şuan sadece "DEAD" yükünden çıkan verileri listelere yazdırdım. Kombinasyonlar ve farklı yüklemeler içinde benzer verileri toplayacak bir yapı oluşturacağım.
+
+
+-Atladığım bazı kısımlar olabilir. Bu tarz konularda Türkçe kaynak olmadığı için ve CSİ'ın dökümanlarında bilgi eksiklikleri olduğu için belki birilerinin işine yarayabilir :) :)  Bazı kodların nasıl çalıştığını bulmak için 60-70 defa deneme yanılma yapmak zorunda kaldım.
+
+Modellediğiniz menfez'in çıkan sonuçlara göre donatı hesabı yaptırılabilir. kontroller yaptırılabilir. Tabi ayrıyeten bunlara da programlar yazılmalı.
+
+Mezuniyet sonrası boşluğumda yazıyorum bu programları bir çok eksik ve hata olabilir eleştirilerinizi bekliyorum.
+
+Program kodlarını github üzerinden paylaşıyorum.
+
+
+
+https://github.com/erenahmet95/menfez
+
+.py uzantılı dosyaları bir klasore toplayın, menfez_api2.py adlı programı çalıştırın.
+
